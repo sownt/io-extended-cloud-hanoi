@@ -1,174 +1,102 @@
-'use client';
-import Image from 'next/image';
-import {
-  CalendarDaysIcon,
-  ClockIcon,
-  MapPinIcon,
-  TicketIcon,
-} from '@heroicons/react/24/solid';
-import Button from '@/components/button/Button';
-import logo_white from '@/public/logo_white.png';
-import hero from '@/public/hero/home_hero.svg';
-import hero_dark from '@/public/hero/home_hero_dark.svg';
-import hero_mobile from '@/public/hero/home_hero_mobile.svg';
-import hero_mobile_dark from '@/public/hero/home_hero_mobile_dark.svg';
-import googlefordevelopers from '@/public/googlefordevelopers.svg';
-import MobileNavBar from '@/components/navbar/MobileNavBar';
-import Link from 'next/link';
-import NavBar from '@/components/navbar/NavBar';
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative isolate flex flex-col min-h-svh w-full bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
-      {/* Nav */}
-      <NavBar />
-      {/* Mobile Nav */}
-      <MobileNavBar />
-      {/* Body */}
-      <main>
-        {/* Hero Section */}
-        <div className="mx-auto max-w-6xl flex flex-col md:flex-row overflow-hidden bg-grey-bg dark:bg-grey border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
-          <div className="flex flex-col md:justify-center px-8 py-16 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10 text-center md:text-left items-center md:items-start">
-            <h1 className="text-2xl sm:text-4xl font-semibold mb-4 sm:s-h3 md:l-h1-2">
-              Cùng cập nhật những công nghệ mới nhất về Cloud, AI và ML từ
-              Google I/O
-            </h1>
-            <p className="font-normal text-justify sm:s-h6 md:l-h6 mb-4">
-              Tại sự kiện Google I/O Extended Cloud Hanoi 2024, phiên bản mở
-              rộng của sự kiện Google I/O dành cho các lập trình viên và những
-              người yêu thích công nghệ tại Việt Nam.
-            </p>
-            <Link href="https://gdgcloudhanoi.dev/iox-register">
-              <Button>
-                <TicketIcon />
-                Đăng ký ngay
-              </Button>
-            </Link>
-          </div>
-          <div className="flex justify-end items-end w-full md:w-3/5 mt-[-55px] md:mt-[60px]">
-            <Image
-              src={hero}
-              alt="Hero image"
-              className="hidden md:inline-block h-full object-cover object-left dark:hidden ml:pr-4"
-            />
-            <Image
-              src={hero_dark}
-              alt="Hero image"
-              className="hidden dark:md:inline-block h-full object-cover object-left ml:pr-4"
-            />
-            <Image
-              src={hero_mobile}
-              alt="Hero image"
-              className="block md:hidden dark:hidden w-full mt-[60px]"
-            />
-            <Image
-              src={hero_mobile_dark}
-              alt="Hero image"
-              className="hidden dark:inline-block dark:md:hidden w-full mt-[60px]"
-            />
-          </div>
-        </div>
-        {/* End Hero Section */}
-        <div className="rounded-4xl bg-neutral-900 py-20 sm:py-32">
-          <div className="mx-auto max-w-6xl px-8">
-            <div className="flex items-center gap-x-8">
-              <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-                Đồng hành cùng chúng tôi
-              </h2>
-              <div className="h-px flex-auto bg-neutral-800"></div>
-            </div>
-            <div>
-              <ul className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
-                {Array.from({ length: 8 }, (_, i) => (
-                  <li key={i}>
-                    <span className="relative">
-                      <Image
-                        className="w-64"
-                        src={logo_white}
-                        alt="Google I/O Extended Cloud Hanoi 2024"
-                      />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li className="mb-2 tracking-[-.01em]">
+            Get started by editing{" "}
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
+              app/page.tsx
+            </code>
+            .
+          </li>
+          <li className="tracking-[-.01em]">
+            Save and see your changes instantly.
+          </li>
+        </ol>
 
-        <div
-          id="info"
-          className="mx-auto max-w-6xl px-8 mt-24 sm:mt-32 lg:mt-40 text-neutral-950 dark:text-gray-50">
-          <h2>
-            <span className="block font-display tracking-tight [text-wrap:balance] text-4xl font-medium sm:text-5xl">
-              Hẹn gặp bạn
-            </span>
-          </h2>
-          <div className="mt-6 text-xl">
-            <p>cùng với gần 400 thành viên tham dự</p>
-          </div>
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 mt-16">
-            <div className="flex">
-              <Link
-                href={'https://maps.app.goo.gl/G2hxgtVqWbVGmb5R9'}
-                rel="noopener noreferrer"
-                target="_blank">
-                <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition bg-neutral-50 hover:bg-white dark:bg-zinc-900 dark:hover:bg-zinc-800 sm:p-8">
-                  <MapPinIcon className="w-8" />
-                  <p className="mt-6 font-display text-2xl font-semibold ">
-                    Hội trường A2, Học viện Công nghệ Bưu chính viễn thông
-                  </p>
-                  <p className="mt-4 text-base">
-                    96A Đường Trần Phú, P. Mộ Lao, Hà Đông, Hà Nội
-                  </p>
-                </article>
-              </Link>
-            </div>
-            <div className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition bg-neutral-50 hover:bg-white dark:bg-zinc-900 dark:hover:bg-zinc-800 sm:p-8">
-                <ClockIcon className="w-8" />
-                <p className="mt-6 font-display text-2xl font-semibold">
-                  13:00
-                </p>
-                <p className="mt-4 text-base">
-                  Nhớ đến sớm để nhận những phần quà hấp dẫn từ BTC
-                </p>
-              </article>
-            </div>
-            <div className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition bg-neutral-50 hover:bg-white dark:bg-zinc-900 dark:hover:bg-zinc-800 sm:p-8">
-                <CalendarDaysIcon className="w-8" />
-                <p className="mt-6 font-display text-2xl font-semibold">
-                  Thứ bảy, 27 tháng 7
-                </p>
-                <p className="mt-4 text-base">
-                  Thêm ngay vào Calendar để không bỏ lỡ nhau nhé
-                </p>
-              </article>
-            </div>
-          </div>
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <a
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={20}
+              height={20}
+            />
+            Deploy now
+          </a>
+          <a
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read our docs
+          </a>
         </div>
       </main>
-      <footer className="mt-24 sm:mt-32 lg:mt-40 pt-10 pb-16 lg:py-10 px-7 lg:px-16 bg-black flex flex-col lg:flex-row lg:justify-between lg:items-center w-max-full">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-6 lg:space-y-0 lg:space-x-6 text-grey-500 text-[16px] font-medium flex-1">
-          <div className="text-2xl font-semibold lg:mr-6 text-grey-500 flex justify-center lg:justify-between w-full mb-4 lg:mb-0 lg:w-auto items-center">
-            <Image
-              className="w-32"
-              src={googlefordevelopers}
-              alt="Google for Developers"
-            />
-          </div>
-        </div>
-        <div className="flex items-center justify-center lg:justify-self-end lg:justify-end mt-8 lg:mt-0 text-slate-200">
-          <Link href="#" className="p-3">
-            Facebook
-          </Link>
-          <Link href="#" className="p-3">
-            LinkedIn
-          </Link>
-          <Link href="#" className="p-3">
-            Youtube
-          </Link>
-        </div>
+      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/file.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          Learn
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/window.svg"
+            alt="Window icon"
+            width={16}
+            height={16}
+          />
+          Examples
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/globe.svg"
+            alt="Globe icon"
+            width={16}
+            height={16}
+          />
+          Go to nextjs.org →
+        </a>
       </footer>
     </div>
   );
