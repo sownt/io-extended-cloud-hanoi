@@ -41,7 +41,6 @@ export default function SubscribeForm() {
       email: values.email,
       timestamp: new Date().toISOString(),
     });
-    console.log(result);
 
     if (result.id) {
       toast("Đăng ký thành công.");
