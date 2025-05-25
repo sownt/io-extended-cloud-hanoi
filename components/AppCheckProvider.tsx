@@ -1,0 +1,27 @@
+"use client";
+
+import { useEffect } from "react";
+import {
+  initializeAppCheck,
+  ReCaptchaEnterpriseProvider,
+} from "firebase/app-check";
+import { app } from "@/lib/firebase";
+
+export default function AppCheckProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  useEffect(() => {
+    if (typeof window !== "undefined" && app !== null) {
+      initializeAppCheck(app, {
+        provider: new ReCaptchaEnterpriseProvider(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string
+        ),
+        isTokenAutoRefreshEnabled: true,
+      });
+    }
+  }, []);
+
+  return <>{children}</>;
+}
