@@ -1,0 +1,10 @@
+{
+  "json.schemaDownload.trustedDomains": {
+    "https://ui.shadcn.com": true
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
